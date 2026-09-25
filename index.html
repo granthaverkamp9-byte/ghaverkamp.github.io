@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grant Haverkamp | Mechanical Engineering Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"></script>
+
+  <style>
+    :root {
+      --bg: #0d1117;
+      --card-bg: #161b22;
+      --border: #30363d;
+      --accent: #58a6ff;
+      --text: #c9d1d9;
+      --text-bright: #f0f6fc;
+      --text-muted: #8b949e;
+      --code-bg: #090d13;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', -apple-system, sans-serif;
+      line-height: 1.6;
+      padding: 0 1.5rem;
+    }
+
+    header {
+      max-width: 1100px;
+      margin: 4rem auto 3rem;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 2rem;
+    }
+
+    h1 {
+      font-size: 2.4rem;
+      font-weight: 700;
+      color: var(--text-bright);
+      letter-spacing: -0.02em;
+    }
+
+    .tagline {
+      font-size: 1.15rem;
+      color: var(--accent);
+      margin-top: 0.3rem;
+      font-weight: 500;
+    }
+
+    .contact-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      margin-top: 1.2rem;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.88rem;
+    }
+
+    .contact-bar a {
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    .contact-bar a:hover { color: var(--accent); }
+
+    main {
+      max-width: 1100px;
+      margin: 0 auto 6rem;
+    }
+
+    .project-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      overflow: hidden;
+      margin-bottom: 3.5rem;
+    }
+
+    .project-header {
+      padding: 2rem 2rem 1.2rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .project-tag {
+      display: inline-block;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem;
+      color: var(--accent);
+      background: rgba(88, 166, 255, 0.1);
+      padding: 0.2rem 0.6rem;
+      border-radius: 4px;
+      margin-bottom: 0.6rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .project-header h2 {
+      font-size: 1.7rem;
+      color: var(--text-bright);
+      margin-bottom: 0.5rem;
+    }
+
+    .project-header p {
+      color: var(--text-muted);
+      font-size: 1rem;
+      max-width: 850px;
+    }
+
+    .specs-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1rem;
+      padding: 1.5rem 2rem;
+      background: rgba(0, 0, 0, 0.2);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .spec-item {
+      font-size: 0.88rem;
+    }
+
+    .spec-label {
+      color: var(--text-muted);
+      display: block;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.2rem;
+    }
+
+    .spec-val {
+      color: var(--text-bright);
+      font-family: 'JetBrains Mono', monospace;
+      font-weight: 500;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 1.5rem;
+      padding: 2rem;
+    }
+
+    .cad-view {
+      background: var(--code-bg);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .cad-view img {
+      width: 100%;
+      height: 240px;
+      object-fit: cover;
+      background-color: #272d37;
+      display: block;
+      border-bottom: 1px solid var(--border);
+      transition: transform 0.2s ease;
+    }
+
+    .cad-view:hover img {
+      transform: scale(1.02);
+    }
+
+    .cad-info {
+      padding: 1rem;
+      flex-grow: 1;
+    }
+
+    .cad-info h3 {
+      font-size: 0.95rem;
+      color: var(--text-bright);
+      margin-bottom: 0.3rem;
+    }
+
+    .cad-info p {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      line-height: 1.4;
+    }
+
+    footer {
+      max-width: 1100px;
+      margin: 0 auto 3rem;
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      font-family: 'JetBrains Mono', monospace;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Grant Haverkamp</h1>
+    <div class="tagline">Mechanical Engineering Portfolio | Machine Design & Prototyping</div>
+    <div class="contact-bar">
+      <span>📍 Bozeman, MT / Denver, CO</span>
+      <a href="mailto:granthaverkamp9@gmail.com">✉ granthaverkamp9@gmail.com</a>
+      <a href="https://linkedin.com/in/grant-haverkamp" target="_blank">🔗 LinkedIn</a>
+      <span>⚙ SolidWorks | Fusion 360 | GD&T (ASME Y14.5)</span>
+    </div>
+  </header>
+
+  <main>
+    <section class="project-card">
+      <div class="project-header">
+        <span class="project-tag">EV Powertrain & Reverse Engineering</span>
+        <h2>High-Voltage Battery Pack & Module Reverse Engineering</h2>
+        <p>Reverse-engineered production battery enclosures, internal structure, and cell layouts to perform clearance checks, packaging analyses, and next-generation integration feasibility studies.</p>
+      </div>
+
+      <div class="specs-grid">
+        <div class="spec-item">
+          <span class="spec-label">CAD Environment</span>
+          <span class="spec-val">Fusion 360 / SolidWorks</span>
+        </div>
+        <div class="spec-item">
+          <span class="spec-label">Scope</span>
+          <span class="spec-val">30+ Modules, 10 Full Shells</span>
+        </div>
+        <div class="spec-item">
+          <span class="spec-label">Manufacturing Scope</span>
+          <span class="spec-val">Sheet Metal, Stamping, Extrusion</span>
+        </div>
+        <div class="spec-item">
+          <span class="spec-label">Standard</span>
+          <span class="spec-val">ASME Y14.5 GD&T</span>
+        </div>
+      </div>
+
+      <div class="gallery">
+        <!-- 1. Battery Module -->
+        <div class="cad-view">
+          <img src="portfolio/Screenshot%202026-07-31%20101838.png" alt="Battery Cell Array & Top Housing">
+          <div class="cad-info">
+            <h3>Battery Cell Array & Top Housing</h3>
+            <p>Reverse-engineered cell array with integrated busbar routing, module terminal blocks, and precision side retention brackets.</p>
+          </div>
+        </div>
+
+        <!-- 2. Sheet Metal Bracket Assembly -->
+        <div class="cad-view">
+          <img src="portfolio/Screenshot%202026-07-31%20102127.png" alt="Subsystem Integration & Brackets">
+          <div class="cad-info">
+            <h3>Subsystem Integration & Brackets</h3>
+            <p>CAD packaging of battery module inside stamped sheet-metal retention tray with reinforcement brackets and service hardware.</p>
+          </div>
+        </div>
+
+        <!-- 3. T-Pack Multi-Module Layout -->
+        <div class="cad-view">
+          <img src="portfolio/Screenshot%202026-07-31%20102230.png" alt="Multi-Module Pack Architecture">
+          <div class="cad-info">
+            <h3>Multi-Module Pack Architecture</h3>
+            <p>T-shaped high-voltage pack layout modeling module isolation channels, manual disconnect positioning, and high-voltage wiring paths.</p>
+          </div>
+        </div>
+
+        <!-- 4. T-Pack Lid Cover -->
+        <div class="cad-view">
+          <img src="portfolio/Screenshot%202026-07-31%20102215.png" alt="Top Enclosure & Sealing Surface">
+          <div class="cad-info">
+            <h3>Top Enclosure & Sealing Surface</h3>
+            <p>Sealed top cover with perimeter fastener interfaces, relief press features, and structural pass-through cutouts for service connectors.</p>
+          </div>
+        </div>
+
+        <!-- 5. Lower Tray with Ribs & Studs -->
+        <div class="cad-view">
+          <img src="portfolio/Screenshot%202026-07-31%20102032.png" alt="Lower Structural Enclosure">
+          <div class="cad-info">
+            <h3>Lower Structural Enclosure</h3>
+            <p>Structural tub showing internal battery tray mounting points, stiffener rib arrays, cross-member channels, and perimeter gasket flanges.</p>
+          </div>
+        </div>
+
+        <!-- 6. Upper Cover with Deep Ribs -->
+        <div class="cad-view">
+          <img src="portfolio/Screenshot%202026-07-31%20102020.png" alt="Upper Formed Cover with Ribs">
+          <div class="cad-info">
+            <h3>Upper Formed Cover with Ribs</h3>
+            <p>Formed sheet metal/composite upper shell with structural stiffening ribs for torsional rigidity and high-voltage center connector access.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2026 Grant Haverkamp · Designed for machine design and hardware engineering portfolios</p>
+  </footer>
+
+</body>
+</html>
